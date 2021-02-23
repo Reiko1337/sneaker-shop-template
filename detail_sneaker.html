@@ -8,61 +8,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/logo-icon.png">
     <title>Sneaker Store</title>
 </head>
 
 <body>
     <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="header__top-inner">
-                    <a class="header__top-tel" href="#">8029 858 16 85</a>
-                    <nav class="menu">
-                        <ul class="menu__list">
-                            <li class="menu__list-item-top">
-                                <a class="menu__list-link-top" href="#">Как добраться?</a>
-                            </li>
-                            <li class="menu__list-item-top">
-                                <a class="menu__list-link-top" href="#">Контакты</a>
-                            </li>
-                            <li class="menu__list-item-top">
-                                <a class="menu__list-link-top" href="#">Мой профиль</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <form class="search-form">
-                        <input class="search-form__input" type="text" placeholder="Поиск">
-                    </form>
+        <div class="container">
+            <div class="header__inner">
+                <a class="logo" href="">
+                    <img class="logo__img" src="img/logo-big.png" alt="">
+                </a>
+                <div class="header__burger">
+                    <span></span>
                 </div>
-            </div>
-        </div>
-        <div class="header__bottom">
-            <div class="container">
-                <div class="header__bottom-inner">
-                    <a class="logo" href="">
-                        <img class="logo__img" src="img/logo.png" alt="">
-                    </a>
-                    <nav class="menu">
-                        <ul class="menu__list">
-                            <li class="menu__list-item-bottom">
-                                <a class="menu__list-link-bottom" href="#">Мужские кроссовки</a>
-                            </li>
-                            <li class="menu__list-item-bottom">
-                                <a class="menu__list-link-bottom" href="#">Женские кроссовки</a>
-                            </li>
-                            <li class="menu__list-item-bottom">
-                                <a class="menu__list-link-bottom" href="#">Акция</a>
-                            </li>
-                            <li class="menu__list-item-bottom">
-                                <a class="menu__list-link-bottom" href="#">Избранное</a>
-                            </li>
-                            <li class="menu__list-item-bottom">
-                                <a class="menu__list-link-bottom menu__list-link-cart" href="#">Корзина</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                <nav class="menu">
+                    <ul class="menu__list">
+                        <li class="menu__list-item">
+                            <a class="menu__list-link" href="#">Мужские кроссовки</a>
+                        </li>
+                        <li class="menu__list-item">
+                            <a class="menu__list-link" href="#">Женские кроссовки</a>
+                        </li>
+                        <li class="menu__list-item">
+                            <a class="menu__list-link" href="#">Акция</a>
+                        </li>
+                        <li class="menu__list-item">
+                            <a class="menu__list-link" href="#">Избранное</a>
+                        </li>
+                        <li class="menu__list-item">
+                            <a class="menu__list-link menu__list-link-cart" href="#">Корзина</a>
+                        </li>
+                        <li class="menu__list-item">
+                            <a class="menu__list-link" href="#">Поиск</a>
+                        </li>
+                        <li class="menu__list-item">
+                            <a class="menu__list-link" href="#">Профиль</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
@@ -91,18 +76,29 @@
         </div>
     </section>
 
+
     <section class="sneaker-cart">
         <div class="container">
             <div class="sneaker-cart__inner">
-                <img class="sneaker-cart__img" src="img/slider1.png" alt="">
+                <div class="sneaker-cart__img">
+                    <img class="sneaker-cart__img-image" src="img/slider1.png" alt="">
+                </div>
                 <div class="sneaker-cart__content">
+
+                    <h1 class="sneaker-cart__content-title">Adidas Originals Ozweego Celox</h1>
+                    <ul class="sneaker-cart__content-list">
+                        <li class="sneaker-cart__content-item">Бренд: Adidas</li>
+                        <li class="sneaker-cart__content-item">Категория: Спорт</li>
+                        <li class="sneaker-cart__content-item">Пол: Мужские</li>
+                        <label class="sneakers-group__item-label-favorite detail">
+                            <form class="favorite-form" method="get"
+                                action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                <div class="sneaker-group__item-favorite detail"></div>
+                            </form>
+                        </label>
+                    </ul>
                     <form class="sneaker-cart__size-form">
-                        <h1 class="sneaker-cart__content-title">Adidas Originals Ozweego Celox</h1>
-                        <ul class="sneaker-cart__content-list">
-                            <li class="sneaker-cart__content-item">Бренд: Adidas</li>
-                            <li class="sneaker-cart__content-item">Категория: Спорт</li>
-                            <li class="sneaker-cart__content-item">Пол: Мужские</li>
-                        </ul>
                         <div class="sneaker-cart__size">
                             <p class="sneaker-cart__size-title">Размер</p>
 
@@ -168,11 +164,12 @@
                         </div>
                         <p class="sneaker-cart__content-price">Цена: 200.00 BYN</p>
                         <div class="sneaker-cart__content-form-btn">
-                        <input class="sneaker-cart__content-btn" type="submit" value="Добавить в корзину">
-                    </div>  
+                            <input class="sneaker-cart__content-btn" type="submit" value="Добавить в корзину">
+                        </div>
                     </form>
+
                 </div>
-               
+
             </div>
             <table class="sneaker-cart__table-info">
                 <tr>
@@ -208,7 +205,15 @@
                 </tr>
                 <tr>
                     <td>Описание</td>
-                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi, consequatur eveniet magni obcaecati quos nisi? Asperiores voluptatibus, laborum excepturi tempora libero ratione distinctio numquam, vel necessitatibus recusandae reiciendis? Eaque odit, natus voluptatum molestiae animi dicta sapiente. Alias, sapiente amet? Nihil delectus optio sint magnam. Dolores officiis, tempore doloribus aperiam, ipsum vitae minima fugit vero dicta quam neque dolorum iusto quae repellat dolorem error tenetur pariatur asperiores officia esse, a consequatur repudiandae? Itaque id, possimus nobis praesentium pariatur saepe! Aliquam sed quasi eos facere est, vitae reiciendis suscipit minima praesentium libero dolorem nostrum. Animi excepturi vero porro, impedit distinctio nisi.</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi, consequatur eveniet
+                        magni obcaecati quos nisi? Asperiores voluptatibus, laborum excepturi tempora libero ratione
+                        distinctio numquam, vel necessitatibus recusandae reiciendis? Eaque odit, natus voluptatum
+                        molestiae animi dicta sapiente. Alias, sapiente amet? Nihil delectus optio sint magnam. Dolores
+                        officiis, tempore doloribus aperiam, ipsum vitae minima fugit vero dicta quam neque dolorum
+                        iusto quae repellat dolorem error tenetur pariatur asperiores officia esse, a consequatur
+                        repudiandae? Itaque id, possimus nobis praesentium pariatur saepe! Aliquam sed quasi eos facere
+                        est, vitae reiciendis suscipit minima praesentium libero dolorem nostrum. Animi excepturi vero
+                        porro, impedit distinctio nisi.</td>
                 </tr>
             </table>
         </div>
@@ -218,86 +223,360 @@
         <div class="container">
             <div class="sneakers-group__inner">
                 <p class="sneakers-group__title">ВЫ НЕДАВНО ПРОСМАТРИВАЛИ</p>
-                <div class="sneakers-group__items">
-                    <div class="sneakers-group__item">
-                        <div class="sneakers-group__item-top">
-                            <a href="" class="sneakers-group__item-img-link">
-                                <img class="sneakers-group__item-img" src="img/sneaker-cart.png" alt="">
-                            </a>
-                        </div>
-                        <div class="sneakers-group__item-content">
-                            <p class="sneakers-group__item-title">
-                                <a class="sneakers-group__item-title-link" href="#">
-                                    Nike Air Force 1
+
+                <div class="sneakers-group__items view">
+
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider1.png" alt="">
                                 </a>
-                            </p>
-                            <p class="sneakers-group__item-price">
-                                <a class="sneakers-group__item-price-link" href="#">
-                                    200.00 BYN
-                                </a>
-                            </p>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        1
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
                         </div>
                     </div>
 
-
-                    <div class="sneakers-group__item">
-                        <div class="sneakers-group__item-top">
-                            <a href="" class="sneakers-group__item-img-link">
-                                <img class="sneakers-group__item-img" src="img/sneaker-cart.png" alt="">
-                            </a>
-                        </div>
-                        <div class="sneakers-group__item-content">
-                            <p class="sneakers-group__item-title">
-                                <a class="sneakers-group__item-title-link" href="#">
-                                    Nike Air Force 1
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider2.png" alt="">
                                 </a>
-                            </p>
-                            <p class="sneakers-group__item-price">
-                                <a class="sneakers-group__item-price-link" href="#">
-                                    200.00 BYN
-                                </a>
-                            </p>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        2
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="sneakers-group__item">
-                        <div class="sneakers-group__item-top">
-                            <a href="" class="sneakers-group__item-img-link">
-                                <img class="sneakers-group__item-img" src="img/sneaker-cart.png" alt="">
-                            </a>
-                        </div>
-                        <div class="sneakers-group__item-content">
-                            <p class="sneakers-group__item-title">
-                                <a class="sneakers-group__item-title-link" href="#">
-                                    Nike Air Force 1
+
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider2.jpg" alt="">
                                 </a>
-                            </p>
-                            <p class="sneakers-group__item-price">
-                                <a class="sneakers-group__item-price-link" href="#">
-                                    200.00 BYN
-                                </a>
-                            </p>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        3
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
                         </div>
-                    </div>  
-                    <div class="sneakers-group__item">
-                        <div class="sneakers-group__item-top">
-                            <a href="" class="sneakers-group__item-img-link">
-                                <img class="sneakers-group__item-img" src="img/sneaker-cart.png" alt="">
-                            </a>
-                        </div>
-                        <div class="sneakers-group__item-content">
-                            <p class="sneakers-group__item-title">
-                                <a class="sneakers-group__item-title-link" href="#">
-                                    Nike Air Force 1
+                    </div>
+
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider3.jpg" alt="">
                                 </a>
-                            </p>
-                            <p class="sneakers-group__item-price">
-                                <a class="sneakers-group__item-price-link" href="#">
-                                    200.00 BYN
-                                </a>
-                            </p>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        4
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
                         </div>
-                    </div>  
+                    </div>
+
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider1.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        5
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider1.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        6
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        7
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        8
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        9
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        10
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snekaer-group__col">
+                        <div class="sneakers-group__item sneakers-group__item_sale">
+                            <span class="discount">-100%</span>
+                            <div class="sneakers-group__item-top">
+                                <a href="" class="sneakers-group__item-img-link">
+                                    <img class="sneakers-group__item-img" src="img/slider2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="sneakers-group__item-content">
+                                <p class="sneakers-group__item-title">
+                                    <a class="sneakers-group__item-title-link" href="#">
+                                        11
+                                    </a>
+                                </p>
+                                <p class="sneakers-group__item-price">
+                                    <a class="sneakers-group__item-price-link sneakers-group__item-price-link_sale"
+                                        href="#">
+                                        <span class="sneakers-group__item-price">180.00 BYN</span>
+                                        <span class="sneakers-group__item-discount-price">180.00 BYN</span>
+                                    </a>
+                                </p>
+                                <label class="sneakers-group__item-label-favorite">
+                                    <form class="favorite-form" method="get"
+                                        action="{% url 'store:edit_favorites' sneaker.slug %}">
+                                        <input class="sneaker-group__item-favorite-checkbox" type="checkbox">
+                                        <div class="sneaker-group__item-favorite"></div>
+                                    </form>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sneakers-group__btns">
+                    <button id="prev-view" class="sneakers-group__btn">&#10094; Назад</button>
+                    <button id="next-view" class="sneakers-group__btn">Вперед &#10095;</button>
                 </div>
             </div>
         </div>
@@ -306,71 +585,71 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
-                <div class="footer__items">
-                    <div class="footer__item-logo">
-                        <a class="logo" href="">
-                            <img class="footer__logo" src="img/logo-big.png" alt="">
-                        </a>
-                        <p class="footer__logo-title">SNEAKER STORE</p>
-                        <p class="footer__logo-description">
-                            Магазин кроссовок и спортивной обуви в Минске. В наличии имеются мужские и женские кроссовки
-                            от
-                            производителей.
-                        </p>
-                    </div>
-                    <div class="footer__item-catalog">
-                        <p class="footer__item-title">
-                            КАТАЛОГ
-                        </p>
-                        <ul class="footer__menu-list">
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Мужские кроссовки</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Женские кроссовки</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Скидки</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer__item-about">
-                        <p class="footer__item-title">
-                            О НАС
-                        </p>
-                        <ul class="footer__menu-list">
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Контакты</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Как добраться?</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Информация</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer__item-help">
-                        <p class="footer__item-title">
-                            О НАС
-                        </p>
-                        <ul class="footer__menu-list">
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Обратная связь</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">Карта сайта</a>
-                            </li>
-                            <li class="footer__menu-item">
-                                <a class="footer__menu-link" href="#">API</a>
-                            </li>
-                        </ul>
-                    </div>
+
+                <div class="footer__item-logo">
+                    <img class="footer__logo" src="img/logo-big.png" alt="">
+                    <p class="footer__logo-title">SNEAKER STORE</p>
+                    <p class="footer__logo-description">
+                        Магазин кроссовок и спортивной обуви в Минске. В наличии имеются мужские и женские кроссовки
+                        от
+                        производителей.
+                    </p>
                 </div>
+                <div class="footer__item-catalog">
+                    <p class="footer__item-title" onclick="spoiler(123)">
+                        КАТАЛОГ
+                    </p>
+                    <ul class="footer__menu-list">
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Мужские кроссовки</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Женские кроссовки</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Скидки</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__item-about">
+                    <p class="footer__item-title">
+                        О НАС
+                    </p>
+                    <ul class="footer__menu-list">
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Контакты</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Как добраться?</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Информация</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__item-help">
+                    <p class="footer__item-title">
+                        ПОМОЩЬ
+                    </p>
+                    <ul class="footer__menu-list">
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Обратная связь</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">Карта сайта</a>
+                        </li>
+                        <li class="footer__menu-item">
+                            <a class="footer__menu-link" href="#">API</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </div>
         </div>
     </footer>
+    <script src="js/slider.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
