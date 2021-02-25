@@ -267,10 +267,10 @@ body{
     line-height: 20px;
 }
 
-.sneakers-group__item_sale{
+.sale{
     position: relative;
 }
-.sneakers-group__item_sale::after{
+.sale::after{
     content: "";
     background-image: url('../img/sale-tag.svg');
     background-repeat: no-repeat;
@@ -444,8 +444,10 @@ body{
     justify-content: space-between;
 }
 .sneaker-cart__img{
+    flex: 0 0 60%;
     width: 100%;
     height: 400px;
+    position: relative;
 }
 .sneaker-cart__img-image{
     width: 100%;
@@ -453,7 +455,8 @@ body{
     object-fit: cover;
 }
 .sneaker-cart__content{
-    margin-left: 50px;
+    /* margin-left: 50px; */
+    flex: 0 0 35%;
 }
 
 .detail.sneakers-group__item-label-favorite{
@@ -531,12 +534,32 @@ body{
     margin-right: 2px;
 }
 
-.sneaker-cart__content-price{
+.sneaker-cart__price{
+    display: block;
     margin-top: 10px;
     font-size: 26px;
     line-height: 32px;
-    text-align: right;
 }
+.sneaker-cart__content-price{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.sneaker-cart__content-price_sale .sneaker-cart__price{
+    text-decoration: line-through;
+    font-size: 20px;
+    line-height: 24px;
+}
+.sneaker-cart__content-price_sale .sneakers-group__discount-price{
+    color: #ff0000;
+    margin-left: 10px;
+    font-size: 26px;
+    line-height: 32px;
+
+}
+
 .sneaker-cart__content-btn{
     margin-top: 10px;
     width: 100%;
