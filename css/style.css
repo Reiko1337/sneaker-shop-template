@@ -710,9 +710,28 @@ body.lock{
     font-size: 16px;
     line-height: 20px;
 }
+.cart__price-inner-sale{
+    display: flex;
+    align-items: flex-end;
+}
+.cart__price, .cart__discount{
+    margin: 0;
+    padding: 0;
+}
 .cart__price{
     font-size: 12px;
     line-height: 15px;
+}
+.cart__price-inner-sale .cart__price{
+    text-decoration: line-through;
+    font-size: 10px;
+    line-height: 12px;
+}
+.cart__price-inner-sale .cart__discount{
+    color: #ff0000;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 5px;
 }
 .cart__size{
     font-size: 10px;
