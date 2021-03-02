@@ -81,6 +81,10 @@ body{
     background-image: url("../img/basket-for-shop.svg");
 }
 
+.menu__list-link-cart-total{
+    color: #ff0000;
+    padding: 0 3px;
+}
 
 .slider__content{
     max-width: 100%;

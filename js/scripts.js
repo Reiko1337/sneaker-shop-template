@@ -85,3 +85,6 @@ function showSneakersView() {
         }
     }
 }
+
+opacity: 0;
+    visibility: hidden;
